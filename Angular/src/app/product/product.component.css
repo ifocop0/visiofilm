@@ -1,0 +1,16 @@
+h3 {
+  margin-top: 40px;
+}
+
+.tab-pane {
+  background-color: #fff;
+  padding: 1rem;
+}
+
+ngb-tabset {
+  margin-top: 40px;
+}
+
+.card {
+  background-color: rgba(255, 255, 255, 0.33)
+}

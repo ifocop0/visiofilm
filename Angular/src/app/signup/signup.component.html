@@ -1,0 +1,42 @@
+<h2>Créer un compte</h2>
+
+<ngb-alert type="danger" (close)="invalidFormAlert=false" *ngIf="invalidFormAlert"><strong>Erreur.</strong><br> L'enregistrement a échoué.</ngb-alert>
+
+<form [formGroup]="signupForm" (ngSubmit)="onSubmit()" autocomplete="off">
+
+  <div class="form-group">
+    <label for="singup-firstname" class="control-label">Prénom :</label>
+    <input type="text" formControlName="firstname" class="form-control" [class.is-invalid]="signupForm.get('firstname').touched && signupForm.get('firstname').errors" id="singup-firstname">
+    <div *ngIf="signupForm.get('firstname').touched && signupForm.get('firstname').errors" class="text-danger">
+      <div *ngIf="signupForm.get('firstname').errors.required">Veuillez saisir votre prénom.</div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="singup-lastname" class="control-label">Nom de famille :</label>
+    <input type="text" formControlName="lastname" class="form-control" [class.is-invalid]="signupForm.get('lastname').touched && signupForm.get('lastname').errors" id="singup-lastname">
+    <div *ngIf="signupForm.get('lastname').touched && signupForm.get('lastname').errors" class="text-danger">
+      <div *ngIf="signupForm.get('lastname').errors.required">Veuillez saisir votre nom de famille.</div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="singup-email" class="control-label">E-mail :</label>
+    <input type="email" formControlName="email" class="form-control" [class.is-invalid]="signupForm.get('email').touched && signupForm.get('email').errors" id="singup-email">
+    <div *ngIf="signupForm.get('email').touched && signupForm.get('email').errors" class="text-danger">
+      <div *ngIf="signupForm.get('email').errors.required">Veuillez saisir votre adresse e-mail.</div>
+      <div *ngIf="signupForm.get('email').errors.email">Veuillez saisir une adresse e-mail valide.</div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="singup-password" class="control-label">Mot de passe :</label>
+    <input type="password" formControlName="password" class="form-control" [class.is-invalid]="signupForm.get('password').touched && signupForm.get('password').errors" id="singup-password">
+    <div *ngIf="signupForm.get('password').touched && signupForm.get('password').errors" class="text-danger">
+      <div *ngIf="signupForm.get('password').errors.required">Veuillez saisir votre mot de passe.</div>
+      <div *ngIf="signupForm.get('password').errors.minlength">Votre mot de passe doit comporter au moins 6 caractères.</div>
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-primary btn-block">Créer mon compte</button>
+</form>

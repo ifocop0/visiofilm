@@ -1,0 +1,23 @@
+
+<h2>Votre compte</h2>
+
+<table *ngIf="customerInfo" class="table">
+  <tbody>
+    <tr>
+      <th>Prénom</th>
+      <td>{{ customerInfo.firstname }}</td>
+    </tr>
+    <tr>
+      <th>Nom</th>
+      <td>{{ customerInfo.lastname }}</td>
+    </tr>
+    <tr>
+      <th>E-mail</th>
+      <td>{{ customerInfo.email }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="text-right">
+  <button type="button" (click)="logout()" class="btn btn-danger"><span class="oi oi-account-logout"></span> Déconnexion</button>
+</div>

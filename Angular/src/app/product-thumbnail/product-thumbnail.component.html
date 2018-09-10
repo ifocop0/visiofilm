@@ -1,0 +1,7 @@
+<div>
+  <a routerLink="/films/{{product.id}}"><img src="/assets/images/products/{{product.id}}.jpg" alt="" class="img-fluid img-thumbnail"></a>
+</div>
+<p class="text-center">
+  <a routerLink="/product/{{product.id}}">{{ product.titre }}</a><br>
+  <strong><app-price [price]="product.prix"></app-price></strong>
+</p>

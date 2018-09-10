@@ -1,0 +1,66 @@
+
+<div class="row" *ngIf="product">
+  <div class="order-3 col-sm-6 order-sm-2 col-lg-4 order-lg-1">
+    <div><img src="/assets/images/products/{{product.id}}.jpg" alt="" class="img-fluid img-thumbnail"></div>
+  </div>
+  <div class="order-1 col-sm-6 order-sm-1 col-lg-4 order-lg-2">
+    <h2>{{ product.titre }}</h2>
+    <h4>De : {{ product.realisateurs }}</h4>
+    <p>
+      <ngb-rating [rate]="product.rating" max="5" readonly="readonly"></ngb-rating>
+    </p>
+    <p> Qté Restante : {{ product.qte }}</p>
+  </div>
+  <div class="order-2 col-sm-12 order-sm-3 col-lg-4 order-lg-3">
+    <div class="card">
+      <div class="card-body text-center">
+        <p>
+          Prix :
+          <strong><app-price [price]="product.prix"></app-price></strong>
+        </p>
+
+        <ng-container *ngIf="product.inStock; then inStockTpl; else outOfStockTpl"></ng-container>
+
+        <ng-template #inStockTpl>
+          <p class="text-success"><span class="oi oi-check"></span> en stock</p>
+        </ng-template>
+
+        <ng-template #outOfStockTpl>
+          <p class="text-danger"><strong>Momentanément indisponible</strong></p>
+        </ng-template>
+
+        <button type="button" class="btn btn-danger btn-block" [attr.disabled]="product.inStock ? null : 'disabled'" (click)="addToCart(product)">Ajouter au panier</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="row">
+  <ngb-tabset class="col-12">
+    <ngb-tab title="Description">
+      <ng-template ngbTabContent>
+        <div class="tab-pane">
+          <p>Référence : <strong>{{ product.id }}</strong></p>
+          <p>{{ product.desc_film }}.</p>
+        </div>
+      </ng-template>
+    </ngb-tab>
+    <ngb-tab>
+      <ng-template ngbTabTitle>Avis clients</ng-template>
+      <ng-template ngbTabContent>
+        <div class="tab-pane">
+        Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid.
+        <p>Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table
+        craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl
+        cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar helvetica VHS salvia
+        yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio cillum wes anderson 8-bit, sustainable jean
+        shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party scenester stumptown, tumblr butcher vero
+        sint qui sapiente accusamus tattooed echo park.</p>
+      </div>
+      </ng-template>
+    </ngb-tab>
+  </ngb-tabset>
+</div>
+
+

@@ -1,0 +1,16 @@
+<h3>Nouveautés</h3>
+
+<div class="row">
+  <div *ngFor="let product of newProducts" class="col-sm-3">
+    <app-product-thumbnail [product]="product"></app-product-thumbnail>
+  </div>
+</div>
+
+<h3>Meilleures ventes</h3>
+
+<div class="row">
+  <div *ngFor="let product of bestSellingProducts" class="col-sm-3">
+    <app-product-thumbnail [product]="product"></app-product-thumbnail>
+  </div>
+</div>
+

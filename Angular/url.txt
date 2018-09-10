@@ -1,0 +1,22 @@
+films/
+films/id
+films/realisateurs
+films/realisateurs/films
+
+
+name	"Bolted close"
+description	"Lore doloraecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+price	5.99
+inStock	true
+image	"bolted-close.jpg"
+rating	4
+id	"5b8212b0a99076b63c14f8b8"
+
+
+
+id	23
+annee	1974
+pays	"FR / IT / DE"
+prixdvd	3.990000009536743
+realisateurs	"ZIDI Claude"
+titre	"BIDASSES S'EN VONT EN GUERRE (LES)"
